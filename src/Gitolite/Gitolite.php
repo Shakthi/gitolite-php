@@ -338,7 +338,10 @@ class Gitolite
 		
 		foreach($file as $line)
 		{
-			$line = trim($line);
+            $line = trim($line);
+
+            $line = preg_replace('/#.*/','',$line);
+
 			if($line == '') continue;
 			
 			if(preg_match('/^[@]/', $line))
